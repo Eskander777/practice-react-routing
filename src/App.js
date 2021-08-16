@@ -1,9 +1,10 @@
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
 import AllQuotes from "./pages/AllQuotes";
 import QuoteDetail from "./pages/QuoteDetail";
 import NewQuote from "./pages/NewQuote";
+import NotFound from "./pages/NotFound";
 
 const DUMMY_QUOTES = [
   { id: "q1", author: "Max", text: "Learning React is fun!" },
@@ -23,8 +24,8 @@ function App() {
         <Route path="/new-quote">
           <NewQuote />
         </Route>
-        <Route>
-          <Redirect to="/quotes" />
+        <Route path={"*"}>
+          <NotFound />
         </Route>
       </Switch>
     </Layout>
